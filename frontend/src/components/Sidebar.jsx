@@ -144,6 +144,43 @@ const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
         )}
         {userRole === '0' && (
           <NavLink
+            to="/plan-master"
+            className={({ isActive }) => {
+              const activeClass = isActive
+                ? 'bg-primary text-white'
+                : 'hover:bg-gray-100';
+
+              return `block rounded-md py-2 ${activeClass} ${
+                toggleSidebar ? 'px-1' : 'px-4'
+              }`;
+            }}
+          >
+            {({ isActive }) => (
+              <div
+                className={`flex items-center gap-2 ${
+                  toggleSidebar && 'justify-center'
+                }`}
+              >
+                <FaRegCreditCard
+                  className={`text-lg ${
+                    isActive ? 'text-white' : 'text-primary'
+                  }`}
+                />
+                <div
+                  className={`${
+                    toggleSidebar
+                      ? 'hidden transition-all duration-300'
+                      : 'block transition-all duration-300'
+                  }`}
+                >
+                  {CONSTANTS.SIDEBAR.PLAN_MASTER}
+                </div>
+              </div>
+            )}
+          </NavLink>
+        )}
+        {userRole === '0' && (
+          <NavLink
             to="/subscription-master"
             className={({ isActive }) => {
               const activeClass = isActive

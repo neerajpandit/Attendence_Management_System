@@ -1,3 +1,4 @@
+import mongoose from "mongoose";
 const subscriptionSchema = new Schema(
     {
         businessId: {
@@ -6,11 +7,11 @@ const subscriptionSchema = new Schema(
             required: true,
             unique: true,
         },
-        plan: {
-            type: String,
-            enum: ["free", "basic", "premium"],
-            default: "free",
+        planId: {
+            type: Schema.Types.ObjectId,
+            ref: "Plan",
             required: true,
+            unique: true,
         },
         price: {
             type: Number,

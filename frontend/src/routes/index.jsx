@@ -9,6 +9,7 @@ import OrganizationListPage from '../pages/superadmin/OrganizationListPage';
 import OrganizationDashboardPage from '../pages/organizations/DashboardPage';
 import StaffListPage from '../pages/organizations/StaffListPage';
 import StaffListDetailsPage from '../pages/organizations/StaffListDetailsPage';
+import PlanListPage from '../pages/plan/PlanListPage';
 // Lazy load the components
 const PublicOutlet = lazy(() => import('./PublicOutlet'));
 const PrivateOutlet = lazy(() => import('./PrivateOutlet'));
@@ -82,6 +83,10 @@ const DashboardRoute = () => {
               {
                 path: '/organization-master',
                 element: <OrganizationListPage />,
+              },
+              {
+                path: '/plan-master',
+                element: < PlanListPage/>,
               },
               //Organization related routes
               {
