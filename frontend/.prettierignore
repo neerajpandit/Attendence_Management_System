@@ -1,0 +1,64 @@
+# Ignore node_modules folder (dependencies)
+node_modules/
+
+# Ignore build artifacts
+dist/
+build/
+coverage/
+
+# Ignore package lock and Yarn lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore environment variables
+.env
+.env.local
+.env.*.local
+
+# Ignore log files
+*.log
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore TypeScript declaration files (if generated)
+*.d.ts
+
+# Ignore public or static folders (if applicable in frameworks like Next.js or Express)
+public/
+static/
+
+# Ignore compiled files or transpiled JavaScript
+*.min.js
+*.bundle.js
+*.map
+
+# Ignore generated assets
+assets/
+generated/
+
+# Ignore git-related files
+.git/
+.gitignore
+
+# Ignore IDE/Editor configuration files
+.vscode/
+.idea/
+*.swp
+
+# Ignore Prettier config (itself)
+.prettierignore
+.prettierrc
+.prettierrc.js
+.prettierrc.json
+.prettierrc.yml
+.prettierrc.yaml
+.prettier.config.js
+.prettier.config.cjs
+.editorconfig
+
+# Ignore lint results and tools
+.eslintcache
+.nyc_output/
