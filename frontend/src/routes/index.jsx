@@ -10,6 +10,7 @@ import OrganizationDashboardPage from '../pages/organizations/DashboardPage';
 import StaffListPage from '../pages/organizations/StaffListPage';
 import StaffListDetailsPage from '../pages/organizations/StaffListDetailsPage';
 import PlanListPage from '../pages/plan/PlanListPage';
+import BillListPage from '../pages/bills/BillListPage';
 // Lazy load the components
 const PublicOutlet = lazy(() => import('./PublicOutlet'));
 const PrivateOutlet = lazy(() => import('./PrivateOutlet'));
@@ -106,6 +107,10 @@ const DashboardRoute = () => {
               {
                 path: '/feehead-list',
                 element: <FeeHeadListPage />,
+              },
+              {
+                path: '/bill-master',
+                element: <BillListPage />,
               },
             ],
           },

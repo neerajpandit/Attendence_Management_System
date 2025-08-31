@@ -33,6 +33,8 @@ export const verifyJWT = asyncHandler(async (req, res, next) => {
         }
 
         req.user = user;
+        console.log("user in auth middleware",user);
+        
         console.log("pass via middleware",user.role);
         next();
     } catch (error) {

@@ -3,7 +3,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 import { userAuth } from "../models/userAuth.Model.js";
 import { ApiResponse } from "../utils/ApiResponse.js";
 
-export const addOrganization = asyncHandler(async (req, res, next) => {
+export const addBusiness = asyncHandler(async (req, res, next) => {
   try {
     const { name, businessId } = req.body;
     if (!name || !businessId) {
@@ -34,6 +34,55 @@ export const addOrganization = asyncHandler(async (req, res, next) => {
   }
 });
 
+export const updateBusiness = asyncHandler(async (req, res, next) => {
+    try {
+        const { businessId } = req.params; // ID from route param
+        const updateData = req.body;
+
+        if (!businessId) {
+            return res.status(400).json({
+                success: false,
+                message: "Business ID is required",
+            });
+        }
+
+        const business = await Business.findOne({
+            _id: businessId,
+            isDeleted: false,
+        });
+
+        if (!business) {
+            return res.status(404).json({
+                success: false,
+                message: "Business not found or already deleted",
+            });
+        }
+
+        // 🔒 Optional: prevent overwriting critical fields directly
+        const restrictedFields = [
+            "_id",
+            "adminId",
+            "isDeleted",
+            "createdAt",
+            "updatedAt",
+        ];
+        restrictedFields.forEach((field) => delete updateData[field]);
+
+        const updatedBusiness = await Business.findByIdAndUpdate(
+            businessId,
+            { $set: updateData },
+            { new: true, runValidators: true }
+        );
+
+        return res.status(200).json({
+            success: true,
+            message: "Business updated successfully",
+            data: updatedBusiness,
+        });
+    } catch (error) {
+        next(error);
+    }
+});
 
 export const getStaffList = asyncHandler(async (req, res, next) => {
     try {

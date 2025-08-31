@@ -32,6 +32,7 @@ import authRouter from "./routes/authRoutes.js";
 import superAdminRouter from "./routes/superAdminRoutes.js";
 import organizationRouter from "./routes/organizationRoutes.js";
 import planRouter from "./routes/planRoutes.js"; 
+import billingRouter from "./routes/billingRoutes.js";
 
 dotenv.config();
 const app = express();
@@ -277,6 +278,7 @@ app.use("/api/v1/auth", authRouter);
 app.use("/api/v1/superadmin", superAdminRouter);
 app.use("/api/v1/organization", organizationRouter);
 app.use("/api/v1/plan",planRouter);
+app.use("/api/v1/billing",billingRouter);
 
 // 404
 app.use("/", (_, res) => res.status(404).send("<h1>404! Page not found</h1>"));

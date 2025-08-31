@@ -10,7 +10,12 @@ import {
 import { FaChartSimple } from 'react-icons/fa6';
 import { AiFillProduct } from 'react-icons/ai';
 import { VscGroupByRefType } from 'react-icons/vsc';
-import { MdBusiness, MdPeopleAlt, MdAssignmentTurnedIn } from 'react-icons/md';
+import {
+  MdBusiness,
+  MdPeopleAlt,
+  MdAssignmentTurnedIn,
+  MdRequestQuote,
+} from 'react-icons/md';
 
 import { TbBrandUnity, TbMoneybag } from 'react-icons/tb';
 import { RiMoneyRupeeCircleLine } from 'react-icons/ri';
@@ -398,6 +403,45 @@ const Sidebar = ({ toggleSidebar, setToggleSidebar }) => {
                   }`}
                 >
                   {CONSTANTS.SIDEBAR.ATTENDANCE_MASTER}
+                </div>
+              </div>
+            )}
+          </NavLink>
+        )}
+
+        {/* ALl User Routes"? */}
+        {userRole === '0' || '1' && (
+          <NavLink
+            to="/bill-master"
+            className={({ isActive }) => {
+              const activeClass = isActive
+                ? 'bg-primary text-white'
+                : 'hover:bg-gray-100';
+
+              return `block rounded-md py-2 ${activeClass} ${
+                toggleSidebar ? 'px-1' : 'px-4'
+              }`;
+            }}
+          >
+            {({ isActive }) => (
+              <div
+                className={`flex items-center gap-2 ${
+                  toggleSidebar && 'justify-center'
+                }`}
+              >
+                <MdRequestQuote
+                  className={`text-lg ${
+                    isActive ? 'text-white' : 'text-primary'
+                  }`}
+                />
+                <div
+                  className={`${
+                    toggleSidebar
+                      ? 'hidden transition-all duration-300'
+                      : 'block transition-all duration-300'
+                  }`}
+                >
+                  {CONSTANTS.SIDEBAR.BILL_MASTER}
                 </div>
               </div>
             )}
